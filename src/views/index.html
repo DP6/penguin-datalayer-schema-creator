@@ -11,8 +11,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400&display=swap" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -45,19 +44,25 @@
                 <option disabled selected class="optionLabel">Events</option>
             </select>
 
+            <div class="divAddButton">
+                <button id="buttonRemoveEvent" hidden>
+                    Remove
+                </button>
+            </div>
+
             <br>
 
-            <label for="propertySelected"> Properties Added :</label>
-            <select name="propertySelected" id="propertySelected">
+            <label for="propertySelected" hidden>Properties Added :</label>
+            <select name="propertySelected" id="propertySelected" hidden>
                 <option disabled selected class="optionLabel">Properties</option>
             </select>
             <br>
 
-            <label for="newProperty"> New Property :</label>
-            <input type="text" id="newPropertyNamer" placeholder="Property Name">
+            <label for="newProperty" hidden> New Property :</label>
+            <input type="text" id="newPropertyNamer" placeholder="Property Name" hidden>
             <br>
 
-            <select name="newPropertyType" id="newPropertyType">
+            <select name="newPropertyType" id="newPropertyType" hidden>
                 <option disabled selected class="optionLabel">Property Type</option>
                 <option value="string" class="options"> String </option>
                 <option value="number" class="options"> Number </option>
@@ -67,17 +72,17 @@
             </select>
             <br>
 
-            <select name="newPropertyRequired" id="newPropertyRequired">
+            <select name="newPropertyRequired" id="newPropertyRequired" hidden>
                 <option disabled selected class="optionLabel">Property Mode</option>
                 <option value="required" class="options"> Required </option>
                 <option value="nonRequired" class="options"> Non-required </option>
             </select>
             <br>
 
-            <input type="text" id="newPropertyValue" placeholder="Property Value">
+            <input type="text" id="newPropertyValue" placeholder="Property Value" hidden>
 
             <div class="divAddButton">
-                <button id="buttonAddProperty">
+                <button id="buttonAddProperty" hidden>
                     Add
                 </button>
             </div>
@@ -85,7 +90,7 @@
         </div>
 
         <div class="schemaView">
-            <p>
+            <p id="schemaExample">
                 {
                 "$schema": "",
                 "title": "The Root Schema",

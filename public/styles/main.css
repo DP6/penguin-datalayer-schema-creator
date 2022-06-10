@@ -27,7 +27,6 @@ button,
 textarea,
 select,
 label {
-    font-weight: 300;
     font-size: 1rem;
     font-family: 'Ubuntu', sans-serif;
     color: var(--color-text-base);
@@ -67,28 +66,36 @@ label {
     border-radius: 15px;
 }
 
-.divAddButton{
+.divAddButton {
     display: flex;
     justify-content: start;
 
     padding-top: 5px;
 }
 
-#buttonAddProperty, #buttonAddEvent {
+button {
     font-family: 'Ubuntu', sans-serif;
-    font-weight: bold;
     color: var(--color-text-base);
     text-decoration: none;
-    
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-
-    transition: background 0.2s;
+    border-radius: 3px;
 }
 
 select {
     color: rgba(0, 0, 0, 0.50);
+}
+
+#buttonAddEvent, #buttonAddProperty {
+    background: #7fd460;
+}
+
+.divAddButton #buttonAddEvent:hover {
+    background: #67cd42;
+}
+
+#buttonRemoveEvent, #buttonRemoveProperty {
+    background: #f97f6d;
+}
+
+.divAddButton #buttonRemoveEvent:hover {
+    background: #f76e59;
 }
