@@ -44,7 +44,7 @@
                 <option disabled selected class="optionLabel">Events</option>
             </select>
 
-            <div class="divAddButton">
+            <div class="divRemoveButton">
                 <button id="buttonRemoveEvent" hidden>
                     Remove
                 </button>
@@ -52,17 +52,24 @@
 
             <br>
 
-            <label for="propertySelected" hidden>Properties Added :</label>
-            <select name="propertySelected" id="propertySelected" hidden>
+            <label for="propertySelected">Properties Added :</label>
+            <select name="propertySelected" id="propertySelected">
                 <option disabled selected class="optionLabel">Properties</option>
             </select>
+
+            <div class="divRemoveButton">
+                <button id="buttonRemoveProperty" hidden>
+                    Remove
+                </button>
+            </div>
+
             <br>
 
-            <label for="newProperty" hidden> New Property :</label>
-            <input type="text" id="newPropertyNamer" placeholder="Property Name" hidden>
+            <label for="newPropertyName"> New Property :</label>
+            <input type="text" id="newPropertyName" placeholder="Property Name" disabled>
             <br>
 
-            <select name="newPropertyType" id="newPropertyType" hidden>
+            <select name="newPropertyType" id="newPropertyType" disabled>
                 <option disabled selected class="optionLabel">Property Type</option>
                 <option value="string" class="options"> String </option>
                 <option value="number" class="options"> Number </option>
@@ -72,14 +79,24 @@
             </select>
             <br>
 
-            <select name="newPropertyRequired" id="newPropertyRequired" hidden>
+            <select name="newPropertyRequired" id="newPropertyRequired" disabled>
                 <option disabled selected class="optionLabel">Property Mode</option>
                 <option value="required" class="options"> Required </option>
                 <option value="nonRequired" class="options"> Non-required </option>
             </select>
             <br>
 
-            <input type="text" id="newPropertyValue" placeholder="Property Value" hidden>
+            <input type="text" id="newPropertyValue" placeholder="Property Value" disabled>
+            <br>
+
+            <label for="radioBtnBox">Where property should be added ?</label>
+            <div class="radioBtnBox">
+                <input type="radio" id="newPropertyPlace" name="newPropertyPlace" value="event" checked>
+                <label for="newPropertyPlace">Selected Event</label>
+
+                <input type="radio" id="newPropertyPlace" name="newPropertyPlace" value="property" disabled>
+                <label for="newPropertyPlace">Selected Property</label>
+            </div>
 
             <div class="divAddButton">
                 <button id="buttonAddProperty" hidden>
@@ -107,7 +124,8 @@
 
     </div>
 
-    <script src="/src/main.js"></script>
+    <script src="/public/scripts/main.js"></script>
+    <script src="/public/scripts/events.js"></script>
 </body>
 
 </html>
