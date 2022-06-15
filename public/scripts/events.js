@@ -26,14 +26,15 @@ btnAddEvent.onclick = function () {
         "required": ["event"]
     }
     schema.array.items.push(eventObjt);
-    eventList.add(newEvent, undefined);
+    eventList.add(newEvent);
 
-    updateSchemaExample(JSON.stringify(schema));
+    updateSchemaExample(JSON.stringify(schema, undefined, 2));
 
 }
 
 eventList.addEventListener('change', () => {
     btnRemoveEvent.hidden = false;
+    btnEditEvent.hidden = false;
     btnAddProperty.hidden = false;
 
     propertyName.disabled = false;
@@ -53,6 +54,7 @@ btnRemoveEvent.onclick = function () {
         propertyRequired[0].selected = true;
 
         btnRemoveEvent.hidden = true;
+        btnEditEvent.hidden = true;
         btnAddProperty.hidden = true;
 
         propertyName.disabled = true;
@@ -64,5 +66,5 @@ btnRemoveEvent.onclick = function () {
         propertyValue.value = '';
     };
 
-    updateSchemaExample(JSON.stringify(schema));
+    updateSchemaExample(JSON.stringify(schema, undefined, 2));
 }

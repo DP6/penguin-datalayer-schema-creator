@@ -66,10 +66,7 @@ label {
     border-radius: 15px;
 }
 
-.divAddButton, .divRemoveButton {
-    display: flex;
-    justify-content: start;
-
+.divAddButton, .divPropertyButtons, .divEventsButtons{
     padding-top: 5px;
 }
 
@@ -97,5 +94,13 @@ select {
 }
 
 #buttonRemoveEvent:hover, #buttonRemoveProperty:hover {
-    background: #f76e59;
+    background: #f05a43;
+}
+
+#buttonEditEvent, #buttonEditProperty {
+    background: #edbb56;
+}
+
+#buttonEditEvent:hover, #buttonEditProperty:hover {
+    background: rgb(240, 167, 22);
 }

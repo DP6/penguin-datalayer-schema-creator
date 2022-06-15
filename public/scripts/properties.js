@@ -1,39 +1,121 @@
 const removePropertyInSchema = function (propertyName, propertyIndex) {
+};
 
-    schema.array.items.splice(propertyIndex, 1);
-
+const resetPropertyValues = function () {
+    propertyName.value = '';
+    propertyValue.value = '';
+    propertyType[0].selected = true;
+    propertyRequired[0].selected = true;
+    propertyValidation.hidden = true;
 };
 
 btnAddProperty.onclick = function () {
-    let eventName = document.querySelector('#eventName').value;
-    let newEvent = new Option(eventName, eventName);
 
-    document.querySelector('#eventName').value = '';
+    let newProperty = new Option(propertyName.value, propertyName.value);
 
-    if (eventName === '') {
-        alert('Please enter a valid Name');
+    if (
+        propertyName.value === ''
+        || (propertyValue.value === '' && propertyType.value === 'string')
+        || propertyType.value === 'Property Type'
+        || propertyRequired.value === 'Property Mode'
+    ) {
+        alert('Please enter all values !');
         return;
     }
 
-    let eventObjt = {
-        "type": "object",
-        "properties": {
-            "event": {
-                "type": "string",
-                "enum": [eventName]
-            }
-        },
-        "required": ["event"]
+    let eventIndex = eventList.selectedIndex - 1;
+
+    if (propertyPlace.value === 'event') {
+        switch (propertyType.value) {
+            case 'string':
+
+                if (propertyValidation.value === 'enum') {
+                    schema.array.items[eventIndex]
+                        .properties[propertyName.value] =
+                    {
+                        "type": "string",
+                        "enum": propertyValue.value.split(',')
+                    }
+                } else {
+                    schema.array.items[eventIndex]
+                        .properties[propertyName.value] =
+                    {
+                        "type": "string",
+                        "pattern": propertyValue.value
+                    }
+                }
+                break;
+
+            case 'number':
+                schema.array.items[eventIndex]
+                    .properties[propertyName.value] =
+                {
+                    "type": "number"
+                }
+                break;
+
+            case 'boolean':
+                schema.array.items[eventIndex]
+                    .properties[propertyName.value] =
+                {
+                    "type": "boolean"
+                }
+                break;
+
+            case 'object':
+                schema.array.items[eventIndex]
+                    .properties[propertyName.value] =
+                {
+                    "type": "object",
+                    "properties": {
+                    },
+                    "required": [
+                    ]
+                }
+
+                break;
+
+            case 'array':
+                schema.array.items[eventIndex]
+                    .properties[propertyName.value] =
+                {
+                    "type": "array",
+                    "contains": {
+                    }
+                }
+
+                break;
+
+            default:
+                break;
+        }
     }
-    schema.array.items.push(eventObjt);
-    propertyList.add(newEvent, undefined);
+    else {
 
-    updateSchemaExample(JSON.stringify(schema));
+    }
 
+    if (propertyRequired.value === 'required') {
+        schema.array.items[eventIndex].required.push(propertyName.value)
+    }
+
+    propertyList.add(newProperty);
+    updateSchemaExample(JSON.stringify(schema, undefined, 2));
+    resetPropertyValues();
 }
 
-propertyList.addpropertyListener('change', () => {
+propertyType.addEventListener('change', () => {
+    if (propertyType.value === "string") {
+        propertyValidation.hidden = false;
+        propertyValue.hidden = false;
+    } else {
+        propertyValidation.hidden = true;
+        propertyValue.hidden = true;
+    }
+});
+
+propertyList.addEventListener('change', () => {
     btnRemoveProperty.hidden = false;
+    btnEditProperty.hidden = false;
 });
 
 btnRemoveProperty.onclick = function () {
@@ -44,7 +126,12 @@ btnRemoveProperty.onclick = function () {
     if (propertyList.length === 1) {
         propertyList[0].selected = true;
         btnRemoveProperty.hidden = true;
+        btnEditProperty.hidden = true;
     };
 
-    updateSchemaExample(JSON.stringify(schema));
+    updateSchemaExample(JSON.stringify(schema, undefined, 2));
+}
+
+btnEditProperty.onclick = function () {
+
 }

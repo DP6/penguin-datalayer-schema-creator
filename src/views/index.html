@@ -44,9 +44,12 @@
                 <option disabled selected class="optionLabel">Events</option>
             </select>
 
-            <div class="divRemoveButton">
+            <div class="divEventsButtons">
                 <button id="buttonRemoveEvent" hidden>
                     Remove
+                </button>
+                <button id="buttonEditEvent" hidden>
+                    Edit
                 </button>
             </div>
 
@@ -57,9 +60,12 @@
                 <option disabled selected class="optionLabel">Properties</option>
             </select>
 
-            <div class="divRemoveButton">
+            <div class="divPropertyButtons">
                 <button id="buttonRemoveProperty" hidden>
                     Remove
+                </button>
+                <button id="buttonEditProperty" hidden>
+                    Edit
                 </button>
             </div>
 
@@ -79,6 +85,12 @@
             </select>
             <br>
 
+            <select name="newPropertyValidation" id="newPropertyValidation" hidden>
+                <option value="enum" class="options"> Enum </option>
+                <option value="pattern" class="options"> Pattern </option>
+            </select>
+            <br>
+
             <select name="newPropertyRequired" id="newPropertyRequired" disabled>
                 <option disabled selected class="optionLabel">Property Mode</option>
                 <option value="required" class="options"> Required </option>
@@ -86,7 +98,7 @@
             </select>
             <br>
 
-            <input type="text" id="newPropertyValue" placeholder="Property Value" disabled>
+            <input type="text" id="newPropertyValue" placeholder="Property Value" hidden disabled>
             <br>
 
             <label for="radioBtnBox">Where property should be added ?</label>
@@ -107,25 +119,24 @@
         </div>
 
         <div class="schemaView">
-            <p id="schemaExample">
-                {
-                "$schema": "",
-                "title": "The Root Schema",
-                "array": {
-                "$id": "#/propertys/schema",
-                "type": "array",
-                "items": [
-
-                ]
-                }
-                }
-            </p>
+            <pre id="schemaExample">
+{
+    "$schema": "",
+    "title": "The Root Schema",
+    "array": {
+        "$id": "#/propertys/schema",
+        "type": "array",
+        "items": []
+    }
+}
+            </pre>
         </div>
 
     </div>
 
     <script src="/public/scripts/main.js"></script>
     <script src="/public/scripts/events.js"></script>
+    <script src="/public/scripts/properties.js"></script>
 </body>
 
 </html>
