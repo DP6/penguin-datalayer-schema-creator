@@ -68,3 +68,56 @@ btnRemoveEvent.onclick = function () {
 
     updateSchemaExample(JSON.stringify(schema, undefined, 2));
 }
+
+//Funções do popup
+const popup = document.querySelector('.popup-wrapper')
+const close = document.querySelector('.popup-close')
+btnEditEvent.onclick = function () {
+popup.style.display = 'block'
+}
+
+close.onclick = function() {
+    popup.style.display = 'none'
+}
+
+//Foções de edit de evento
+const addEdit = document.querySelector('#buttonAddEventPopup')
+const cancelEdit = document.querySelector('#buttonCancelEventPopup')
+
+addEdit.onclick = function(){
+    
+    removeEventInSchema(eventList.value, eventList.selectedIndex - 1);
+    eventList.remove(eventList.selectedIndex);
+    updateSchemaExample(JSON.stringify(schema, undefined, 2));
+
+    let eventNameEdit = document.querySelector('#eventNamePopup').value;
+    let newEventEdit = new Option(eventNameEdit, eventNameEdit);
+
+    document.querySelector('#eventNamePopup').value = '';
+
+    if (eventNameEdit === '') {
+        alert('Please enter a valid Name');
+        return;
+    }
+
+    let eventObjtEdit = {
+        "type": "object",
+        "properties": {
+            "event": {
+                "type": "string",
+                "enum": [eventNameEdit]
+            }
+        },
+        "required": ["event"]
+    }
+    schema.array.items.push(eventObjtEdit);
+    eventList.add(newEventEdit);
+
+    updateSchemaExample(JSON.stringify(schema, undefined, 2));
+    popup.style.display = 'none'
+}
+
+cancelEdit.onclick = function() {
+    document.querySelector('#eventNamePopup').value = ""
+    popup.style.display = 'none'
+}
