@@ -51,7 +51,7 @@ label {
     justify-content: space-around;
 }
 
-.content {
+.content, .popup-contentProperties {
     display: flex;
     flex-direction: column;
     justify-content: start;
@@ -81,7 +81,7 @@ select {
     color: rgba(0, 0, 0, 0.50);
 }
 
-#buttonAddEvent, #buttonAddProperty, #buttonAddEventPopup {
+#buttonAddEvent, #buttonAddProperty, #buttonAddEventPopup, #buttonAddPropertyPopup {
     background: #7fd460;
 }
 
@@ -93,7 +93,7 @@ select {
     background: #f97f6d;
 }
 
-#buttonRemoveEvent:hover, #buttonRemoveProperty:hover, #buttonCancelEventPopup {
+#buttonRemoveEvent:hover, #buttonRemoveProperty:hover, #buttonCancelEventPopup, #buttonCancelPropertyPopup {
     background: #f05a43;
 }
 
@@ -105,7 +105,7 @@ select {
     background: rgb(240, 167, 22);
 }
 
-.popup-wrapper{
+.popup-wrapper, .popup-wrapperProperties{
 display: none;
 background: rgba(0,0,0, .5);
 position: fixed;
@@ -126,10 +126,23 @@ height: 100%;
     position: relative;
     border-radius: 15px;
 }
-.h2-popup{
+
+.popupProperties{
+    text-align: center;
+    width: 100%;
+    max-width: 400px;
+    height: 45%;
+    margin: 10% auto;
+    padding: 20px;
+    background: white;
+    position: relative;
+    border-radius: 15px;
+}
+
+.h2-popup, .h2-popupProperties{
     padding-bottom: 10px;
 }
-.popup-close{
+.popup-close, .popup-closeProperties{
     position: absolute;
     top: 5px;
     right: 10px;
