@@ -68,3 +68,41 @@ btnRemoveEvent.onclick = function () {
 
     updateSchemaExample(JSON.stringify(schema, undefined, 2));
 }
+
+//Funções do popup
+const popup = document.querySelector('.popup-wrapper')
+const close = document.querySelector('.popup-close')
+
+btnEditEvent.onclick = function () {
+popup.style.display = 'block'
+}
+
+close.onclick = function() {
+    popup.style.display = 'none'
+}
+
+
+//Funções de edit de evento
+const addEdit = document.querySelector('#buttonAddEventPopup')
+const cancelEdit = document.querySelector('#buttonCancelEventPopup')
+
+addEdit.onclick = function(){
+    
+    let eventNameEdit = document.querySelector('#eventNamePopup').value;       
+    let selectEvents = document.querySelectorAll('#eventSelected')[0]
+
+    selectEvents.children[selectEvents.selectedIndex].value = eventNameEdit
+    selectEvents.children[selectEvents.selectedIndex].innerText = eventNameEdit
+
+    schema.array.items[selectEvents.selectedIndex-1].properties.event.enum = [eventNameEdit]
+
+    updateSchemaExample(JSON.stringify(schema, undefined, 2));
+    document.querySelector('#eventNamePopup').value = ""
+    popup.style.display = 'none'
+}
+
+
+cancelEdit.onclick = function() {
+    document.querySelector('#eventNamePopup').value = ""
+    popup.style.display = 'none'
+}

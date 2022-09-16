@@ -34,6 +34,11 @@ let schema = {
   }
 };
 
+/**
+ * Updates the schema into the website.
+ * @param {string} schema - The new schema to be updated.
+ * @return {string} Returns the new schema.
+ */
 const updateSchemaExample = function (schema) {
   schemaParagraphy.textContent = schema;
 }
