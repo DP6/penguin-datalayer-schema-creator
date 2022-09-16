@@ -130,8 +130,44 @@ btnRemoveProperty.onclick = function () {
     };
 
     updateSchemaExample(JSON.stringify(schema, undefined, 2));
-}
-
+} //popup function
+const popupProperties = document.querySelector('.popup-wrapperProperties')
+const closeProperties = document.querySelector('.popup-closeProperties')
 btnEditProperty.onclick = function () {
-
+popupProperties.style.display = 'block'
 }
+
+closeProperties.onclick = function() {
+    popupProperties.style.display = 'none'
+}
+
+// edit function
+
+const btnAddPropertyPopup = document.querySelector('#buttonAddPropertyPopup')
+
+
+btnAddPropertyPopup.onclick = function () {
+
+    let newProperty = {
+        name: document.querySelector('#propertyNamePopup').value,
+        value: document.querySelector('#editPropertyValue'),
+        type: document.querySelector('#editPropertyType'),
+        requiredOption: document.querySelector('#editPropertyRequired'),
+        validationType: document.querySelector('#editPropertyValidation')
+    }
+    
+    // edit properties name
+    let selectProps = document.querySelectorAll('#propertySelected')[0];
+    let oldSelectedProperty = selectProps.children[selectProps.selectedIndex];
+    let oldPropertyName = oldSelectedProperty.value;
+
+    oldSelectedProperty.value = newProperty.name
+    oldSelectedProperty.innerText = newProperty.name
+
+    let currentSchemaObject = schema.array.items[selectProps.selectedIndex-1].properties
+
+    currentSchemaObject[newProperty.name] = currentSchemaObject[oldPropertyName]
+    delete currentSchemaObject[oldPropertyName]
+
+    updateSchemaExample(JSON.stringify(schema, undefined, 2));
+}  
