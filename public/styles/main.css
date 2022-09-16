@@ -104,3 +104,13 @@ select {
 #buttonEditEvent:hover, #buttonEditProperty:hover {
     background: rgb(240, 167, 22);
 }
+
+.buttonDownload {
+    padding-top: 5px;
+
+}
+#download {
+    position: relative;
+    left: 1350px;
+    
+}
