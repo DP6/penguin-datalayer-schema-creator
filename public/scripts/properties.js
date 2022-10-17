@@ -83,6 +83,12 @@ btnAddProperty.onclick = function () {
   resetPropertyValues();
 };
 
+btnAddObject.onclick = function(){
+
+  
+}
+
+
 propertyType.addEventListener("change", () => {
   if (propertyType.value === "string") {
     propertyValidation.hidden = false;
@@ -267,3 +273,4 @@ btnCancelPropertyPopup.onclick = function () {
   document.querySelector("#eventNamePopup").value = "";
   popup.style.display = "none";
 };
+
