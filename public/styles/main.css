@@ -33,13 +33,18 @@ label {
 }
 
 .header {
+    float: left;
+    padding-top: 10px;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
 .titleHeader {
-    padding-right: 550px;
+    margin-left: 500px;
+}
+.titleHeaderConfig {
+    margin-left: 450px;
 }
 
 #logo {
@@ -47,6 +52,9 @@ label {
 }
 
 .container {
+    padding-top: 10px;
+    margin-left: 25%;
+    float: left;
     display: flex;
     justify-content: space-around;
 }
@@ -60,8 +68,8 @@ label {
 }
 
 .schemaView {
-    width: 450px;
-
+    width: 500px;
+    margin-left: 10%;
     background: #D9D9D9;
     border-radius: 15px;
 }
@@ -81,23 +89,23 @@ select {
     color: rgba(0, 0, 0, 0.50);
 }
 
-#buttonAddEvent, #buttonAddProperty, #buttonAddEventPopup, #buttonAddPropertyPopup {
+#buttonAddEvent, #buttonAddProperty, #buttonAddEventPopup, #buttonAddPropertyPopup, #buttonAddObj,#buttonAddConfig {
     background: #7fd460;
 }
 
-#buttonAddEvent:hover, #buttonAddProperty:hover {
+#buttonAddEvent:hover, #buttonAddProperty:hover, #buttonAddObj:hover,#buttonAddConfig:hover {
     background: #67cd42;
 }
 
-#buttonRemoveEvent, #buttonRemoveProperty {
+#buttonRemoveEvent, #buttonRemoveProperty, #buttonRemoveConfig {
     background: #f97f6d;
 }
 
-#buttonRemoveEvent:hover, #buttonRemoveProperty:hover, #buttonCancelEventPopup, #buttonCancelPropertyPopup {
+#buttonRemoveEvent:hover, #buttonRemoveProperty:hover, #buttonCancelEventPopup:hover, #buttonCancelPropertyPopup:hover, #buttonRemoveConfig:hover {
     background: #f05a43;
 }
 
-#buttonEditEvent, #buttonEditProperty {
+#buttonEditEvent, #buttonEditProperty{
     background: #edbb56;
 }
 
@@ -147,4 +155,31 @@ height: 100%;
     top: 5px;
     right: 10px;
     cursor: pointer;
+}
+#menu{
+    float: left;
+    width: 100%;
+    background: #D9D9D9;
+    border-radius: 50px;
+}
+
+#menu ul{
+    text-align: center;
+    margin-top: 15px;
+}
+
+#menu ul li{
+    display: inline; 
+    padding: 10px 20px; 
+    text-align: center;
+
+}
+#menu ul li:hover{
+    background-color: #d0cecf;
+}
+
+#menu ul li a{
+    color: #000000;
+    font-weight: bold;
+
 }

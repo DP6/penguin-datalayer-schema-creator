@@ -15,6 +15,12 @@
 </head>
 
 <body>
+    <div id="menu">
+        <ul>
+            <li><a href="index.html">Schema Creator</a></li>
+            <li><a href="config.html">Config Schema Creator</a></li>
+        </ul>
+    </div>
     <div class="popup-wrapper">
         <div class="popup">
             <div class="popup-close">x</div>
@@ -53,12 +59,11 @@
                 </select>
                 <br>
                 <select name="editPropertyRequired" id="editPropertyRequired" >
-                    <option disabled selected class="optionLabelPopup">Property Mode</option>
-                    <option value="required" class="optionsPopup"> Required </option>
+                    <option selected value="required" class="optionsPopup"> Required </option>
                     <option value="nonRequired" class="optionsPopup"> Non-required </option>
                 </select>
                 <br>
-                <input type="text" id="editPropertyValue" placeholder="Property Value" hidden disabled>
+                <input type="text" id="editPropertyValue" placeholder="Property Value" hidden>
                 <br>
                 <button id="buttonAddPropertyPopup">
                     Add
@@ -90,6 +95,8 @@
                     Add
                 </button>
             </div>
+
+            
 
             <br>
 
@@ -168,8 +175,10 @@
                 <button id="buttonAddProperty" hidden>
                     Add
                 </button>
+                <button id="buttonAddObj">
+                    Add Object In Object
+                </button>
             </div>
-
         </div>
 
         <div class="schemaView">
