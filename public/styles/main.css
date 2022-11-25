@@ -33,18 +33,13 @@ label {
 }
 
 .header {
-    float: left;
-    padding-top: 10px;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
 .titleHeader {
-    margin-left: 500px;
-}
-.titleHeaderConfig {
-    margin-left: 450px;
+    padding-right: 550px;
 }
 
 #logo {
@@ -52,14 +47,11 @@ label {
 }
 
 .container {
-    padding-top: 10px;
-    margin-left: 25%;
-    float: left;
     display: flex;
     justify-content: space-around;
 }
 
-.content, .popup-contentProperties {
+.content {
     display: flex;
     flex-direction: column;
     justify-content: start;
@@ -68,8 +60,8 @@ label {
 }
 
 .schemaView {
-    width: 500px;
-    margin-left: 10%;
+    width: 450px;
+
     background: #D9D9D9;
     border-radius: 15px;
 }
@@ -89,97 +81,88 @@ select {
     color: rgba(0, 0, 0, 0.50);
 }
 
-#buttonAddEvent, #buttonAddProperty, #buttonAddEventPopup, #buttonAddPropertyPopup, #buttonAddObj,#buttonAddConfig {
+#buttonAddEvent, #buttonAddProperty, #buttonAddConfig, #buttonAddObj, #buttonAddEventPopup, #buttonNv2, #buttonNv3,#buttonNv4,#buttonNv5{
     background: #7fd460;
 }
+#buttonAddObj, #buttonNv2, #buttonNv3,#buttonNv4,#buttonNv5{
+display:none
+}
 
-#buttonAddEvent:hover, #buttonAddProperty:hover, #buttonAddObj:hover,#buttonAddConfig:hover {
+#buttonAddEvent:hover, #buttonAddProperty:hover, #buttonAddConfig:hover, #buttonAddObj:hover, #buttonAddEventPopup:hover,#buttonNv2:hover, #buttonNv3:hover,#buttonNv4:hover,#buttonNv5:hover {
     background: #67cd42;
 }
 
-#buttonRemoveEvent, #buttonRemoveProperty, #buttonRemoveConfig {
+#buttonRemoveEvent, #buttonRemoveProperty, #buttonRemoveConfig,#buttonCancelEventPopup, #buttonRemovePropertyNv2, #buttonRemovePropertyNv3, #buttonRemovePropertyNv4, #buttonRemovePropertyNv5 {
     background: #f97f6d;
 }
 
-#buttonRemoveEvent:hover, #buttonRemoveProperty:hover, #buttonCancelEventPopup:hover, #buttonCancelPropertyPopup:hover, #buttonRemoveConfig:hover {
+#buttonRemoveEvent:hover, #buttonRemoveProperty:hover, #buttonRemoveConfig:hover, #buttonCancelEventPopup:hover, #buttonRemovePropertyNv2:hover, #buttonRemovePropertyNv3:hover, #buttonRemovePropertyNv4:hover, #buttonRemovePropertyNv5:hover {
     background: #f05a43;
 }
 
-#buttonEditEvent, #buttonEditProperty{
+#buttonEditEvent, #buttonEditProperty, #buttonEditPropertyNv2, #buttonEditPropertyNv3, #buttonEditPropertyNv4, #buttonEditPropertyNv5 {
     background: #edbb56;
 }
 
-#buttonEditEvent:hover, #buttonEditProperty:hover {
+#buttonEditEvent:hover, #buttonEditProperty:hover, #buttonEditPropertyNv2:hover, #buttonEditPropertyNv3:hover, #buttonEditPropertyNv4:hover, #buttonEditPropertyNv5:hover {
     background: rgb(240, 167, 22);
 }
 
+.buttonDownload {
+    padding-top: 5px;
+
+}
+#download {
+    position: relative;
+    left: 1350px;
+    
+}
+
+
+#propertyNv2,#propertyLabel2, #propertyNv3, #propertyLabel3, #propertyNv4, #propertyLabel4, #propertyNv5, #propertyLabel5{
+    display: none;
+}
+
 .popup-wrapper, .popup-wrapperProperties{
-display: none;
-background: rgba(0,0,0, .5);
-position: fixed;
-top: 0;
-left: 0;
-width: 100%;
-height: 100%;
-}
-
-.popup{
-    text-align: center;
+    display: none;
+    background: rgba(0,0,0, .5);
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
-    max-width: 400px;
-    height: 25%;
-    margin: 10% auto;
-    padding: 20px;
-    background: white;
-    position: relative;
-    border-radius: 15px;
-}
-
-.popupProperties{
-    text-align: center;
-    width: 100%;
-    max-width: 400px;
-    height: 45%;
-    margin: 10% auto;
-    padding: 20px;
-    background: white;
-    position: relative;
-    border-radius: 15px;
-}
-
-.h2-popup, .h2-popupProperties{
-    padding-bottom: 10px;
-}
-.popup-close, .popup-closeProperties{
-    position: absolute;
-    top: 5px;
-    right: 10px;
-    cursor: pointer;
-}
-#menu{
-    float: left;
-    width: 100%;
-    background: #D9D9D9;
-    border-radius: 50px;
-}
-
-#menu ul{
-    text-align: center;
-    margin-top: 15px;
-}
-
-#menu ul li{
-    display: inline; 
-    padding: 10px 20px; 
-    text-align: center;
-
-}
-#menu ul li:hover{
-    background-color: #d0cecf;
-}
-
-#menu ul li a{
-    color: #000000;
-    font-weight: bold;
-
-}
+    height: 100%;
+    }
+    
+    .popup{
+        text-align: center;
+        width: 100%;
+        max-width: 400px;
+        height: 25%;
+        margin: 10% auto;
+        padding: 20px;
+        background: white;
+        position: relative;
+        border-radius: 15px;
+    }
+    
+    .popupProperties{
+        text-align: center;
+        width: 100%;
+        max-width: 400px;
+        height: 45%;
+        margin: 10% auto;
+        padding: 20px;
+        background: white;
+        position: relative;
+        border-radius: 15px;
+    }
+    
+    .h2-popup, .h2-popupProperties{
+        padding-bottom: 10px;
+    }
+    .popup-close, .popup-closeProperties{
+        position: absolute;
+        top: 5px;
+        right: 10px;
+        cursor: pointer;
+    }

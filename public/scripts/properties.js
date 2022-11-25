@@ -1,4 +1,6 @@
-const removePropertyInSchema = function (propertyName, propertyIndex) {};
+const removePropertyInSchema = function (propertyName, propertyIndex) {
+  //schema.array.items[eventList.selectedIndex-1].properties.delete(propertyIndex,1)
+};
 
 const resetPropertyValues = function () {
   propertyName.value = "";
@@ -9,6 +11,7 @@ const resetPropertyValues = function () {
 };
 
 btnAddProperty.onclick = function () {
+  btnAddObject.style.display = "block";
   let newProperty = new Option(propertyName.value, propertyName.value);
 
   if (
@@ -23,7 +26,6 @@ btnAddProperty.onclick = function () {
 
   let eventIndex = eventList.selectedIndex - 1;
 
-  if (propertyPlace.value === "event") {
     switch (propertyType.value) {
       case "string":
         if (propertyValidation.value === "enum") {
@@ -71,8 +73,6 @@ btnAddProperty.onclick = function () {
       default:
         break;
     }
-  } else {
-  }
 
   if (propertyRequired.value === "required") {
     schema.array.items[eventIndex].required.push(propertyName.value);
@@ -82,12 +82,6 @@ btnAddProperty.onclick = function () {
   updateSchemaExample(JSON.stringify(schema, undefined, 2));
   resetPropertyValues();
 };
-
-btnAddObject.onclick = function(){
-
-  
-}
-
 
 propertyType.addEventListener("change", () => {
   if (propertyType.value === "string") {
@@ -105,8 +99,12 @@ propertyList.addEventListener("change", () => {
 });
 
 btnRemoveProperty.onclick = function () {
-  removeEventInSchema(propertyList.value, propertyList.selectedIndex - 1);
+  let selectProps = document.querySelectorAll("#propertySelected")[0];
+  let selectEvents = document.querySelectorAll("#eventSelected")[0];
+  let selectedProperty = selectProps.children[selectProps.selectedIndex].value
+  delete schema.array.items[selectEvents.selectedIndex - 1].properties[selectedProperty]
   propertyList.remove(propertyList.selectedIndex);
+  schema.array.items[selectEvents.selectedIndex - 1].required.splice(selectProps.selectedIndex,1)
 
   if (propertyList.length === 1) {
     propertyList[0].selected = true;
@@ -116,161 +114,3 @@ btnRemoveProperty.onclick = function () {
 
   updateSchemaExample(JSON.stringify(schema, undefined, 2));
 };
-
-//the following lines refers to editing Properties
-//popup function
-const popupProperties = document.querySelector(".popup-wrapperProperties");
-const closeProperties = document.querySelector(".popup-closeProperties");
-btnEditProperty.onclick = function () {
-  popupProperties.style.display = "block";
-};
-
-closeProperties.onclick = function () {
-  popupProperties.style.display = "none";
-};
-
-// the following lines refers to editing Properties
-const btnAddPropertyPopup = document.querySelector("#buttonAddPropertyPopup");
-const btnCancelPropertyPopup = document.querySelector(
-  "#buttonCancelPropertyPopup"
-);
-btnAddPropertyPopup.onclick = function () {
-  let newProperty = {
-    name: document.querySelector("#propertyNamePopup").value,
-    value: document.querySelector("#editPropertyValue").value,
-    type: document.querySelector("#editPropertyType").value,
-    requiredOption: document.querySelector("#editPropertyRequired").value,
-    validationType: document.querySelector("#editPropertyValidation").value,
-  };
-
-  let selectProps = document.querySelectorAll("#propertySelected")[0];
-  let selectEvents = document.querySelectorAll("#eventSelected")[0];
-
-  if (newProperty.name !== "") {
-    //edit properties name
-    let oldSelectedProperty = selectProps.children[selectProps.selectedIndex]; //returns the property selection list
-    let oldPropertyName = oldSelectedProperty.value;
-
-    oldSelectedProperty.value = newProperty.name;
-    oldSelectedProperty.innerText = newProperty.name;
-
-    let currentSchemaObject =
-      schema.array.items[selectEvents.selectedIndex - 1].properties; //returns the properties object of the selected event
-
-    currentSchemaObject[newProperty.name] =
-      currentSchemaObject[oldPropertyName]; //replaces a property name
-    delete currentSchemaObject[oldPropertyName]; // delete the old name
-
-    switch (
-      newProperty.type //property type conditionals
-    ) {
-      case "string":
-        if (newProperty.validationType === "enum") {
-          currentSchemaObject[newProperty.name] = currentSchemaObject[
-            oldPropertyName
-          ] = {
-            type: "string",
-            enum: newProperty.value.split(","),
-          };
-          delete currentSchemaObject[oldPropertyName];
-        } else {
-          currentSchemaObject[newProperty.name] = currentSchemaObject[
-            oldPropertyName
-          ] = {
-            type: "string",
-            pattern: newProperty.value,
-          };
-          delete currentSchemaObject[oldPropertyName];
-        }
-        break;
-
-      case "number":
-        currentSchemaObject[newProperty.name] = currentSchemaObject[
-          oldPropertyName
-        ] = {
-          type: "number",
-        };
-        delete currentSchemaObject[oldPropertyName];
-        break;
-
-      case "boolean":
-        currentSchemaObject[newProperty.name] = currentSchemaObject[
-          oldPropertyName
-        ] = {
-          type: "boolean",
-        };
-        delete currentSchemaObject[oldPropertyName];
-        break;
-
-      case "object":
-        currentSchemaObject[newProperty.name] = currentSchemaObject[
-          oldPropertyName
-        ] = {
-          type: "object",
-          properties: {},
-          required: [],
-        };
-        delete currentSchemaObject[oldPropertyName];
-
-        break;
-
-      case "array":
-        currentSchemaObject[newProperty.name] = currentSchemaObject[
-          oldPropertyName
-        ] = {
-          type: "array",
-          contains: {},
-        };
-        delete currentSchemaObject[oldPropertyName];
-
-        break;
-
-      default:
-        break;
-    }
-  }
-
-  // property modes selection conditionals
-  if (newProperty.requiredOption === "required") {
-    schema.array.items[selectEvents.selectedIndex - 1].required[
-      selectProps.selectedIndex
-    ] = newProperty.name;
-  }
-
-  if (newProperty.requiredOption === "nonRequired") {
-    schema.array.items[selectEvents.selectedIndex - 1].required.splice([
-      selectProps.selectedIndex,
-    ]);
-  }
-
-  updateSchemaExample(JSON.stringify(schema, undefined, 2));
-
-  //clear the fields and close the popup after edits
-  document.querySelector("#eventNamePopup").value = "";
-  popup.style.display = "none";
-};
-
-//property type change in string case
-let changes = {
-  value: document.querySelector("#editPropertyValue"),
-  type: document.querySelector("#editPropertyType"),
-  validationType: document.querySelector("#editPropertyValidation"),
-};
-
-changes.type.addEventListener("change", () => {
-  if (changes.type.value === "string") {
-    changes.validationType.hidden = false;
-    changes.value.hidden = false;
-    popupProperties.style.height = "115%";
-  } else {
-    changes.validationType.hidden = true;
-    changes.value.hidden = true;
-  }
-});
-
-btnCancelPropertyPopup.onclick = function () {
-  //function to cancel editing
-  document.querySelector("#eventNamePopup").value = "";
-  popup.style.display = "none";
-};
-

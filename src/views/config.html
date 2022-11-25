@@ -18,7 +18,7 @@
     <div id="menu">
         <ul>
             <li><a href="index.html">Schema Creator</a></li>
-            <li><a href="config.html" target="_blank">Config Schema Creator</a></li>
+            <li><a href="config.html">Config Schema Creator</a></li>
         </ul>
     </div>
     
@@ -62,11 +62,17 @@
         </div>
 
     </div>
-
+    <div class="buttonDownload">
+        <button id="download" onclick="onDownload()">Download</button>
+    </div>
+        <div class="buttonCopy">
+            <button id="copy" onclick="onCopy()">Copy text</button>
+    </div>
     <script src="/public/scripts/main.js"></script>
     <script src="/public/scripts/events.js"></script>
     <script src="/public/scripts/properties.js"></script>
     <script src="/public/scripts/config.js"></script>
+    <script src="/public/scripts/download.js"></script>
 </body>
 
 </html>
