@@ -6,12 +6,17 @@ function download(content, fileName){
     a.click( ); 
     }; 
 
+
 let onDownload = () => {
     const jsonContent = document.querySelector("#schemaExample").innerHTML
+    if(schemaName.value === ""){
+        alert("please enter schema name")
+    }else{
     console.log(jsonContent)
-    download(jsonContent, "json-file-name.json");
+    download(jsonContent, `${schemaName.value}.json`);
 
-}; 
+    }; 
+}
 
 const onCopy = () => {
     const jsonContent = document.querySelector("#schemaExample").innerHTML
@@ -20,4 +25,3 @@ const onCopy = () => {
     navigator.clipboard.writeText(jsonContent);
   
   }
-  

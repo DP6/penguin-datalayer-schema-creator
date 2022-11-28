@@ -11,7 +11,7 @@ const resetPropertyValues = function () {
 };
 
 btnAddProperty.onclick = function () {
-  btnAddObject.style.display = "block";
+  btnAddObjectNv2.style.display = "block";
   let newProperty = new Option(propertyName.value, propertyName.value);
 
   if (

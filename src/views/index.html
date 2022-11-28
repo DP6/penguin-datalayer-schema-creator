@@ -97,8 +97,11 @@
     </div>
 
     <div class="container">
-
+        
         <div class="content">
+            <label for="schema_name"> Schema Name :</label>
+            <input type="text" id="schema_name" placeholder="Schema Name">
+            <br>
             <label for="eventName"> Event :</label>
             <input type="text" id="eventName" placeholder="Event Name">
 
@@ -146,7 +149,7 @@
 
             <label for="propertyNv2" id="propertyLabel2">Properties Nv 2 :</label>
             <select name="propertyNv2" id="propertyNv2">
-                <option disabled selected class="optionLabel">Property Nv 2</option>
+                <option disabled selected class="optionLabel">Properties Nv 2</option>
             </select>
 
             <div class="divPropertyButtons">
@@ -160,7 +163,7 @@
 
             <label for="propertyNv3" id="propertyLabel3">Properties Nv 3 :</label>
             <select name="propertyNv3" id="propertyNv3">
-                <option disabled selected class="optionLabel">Property Nv 3</option>
+                <option disabled selected class="optionLabel">Properties Nv 3</option>
             </select>
 
             <div class="divPropertyButtons">
@@ -173,7 +176,7 @@
 
             <label for="propertyNv4" id="propertyLabel4">Properties Nv 4 :</label>
             <select name="propertyNv4" id="propertyNv4">
-                <option disabled selected class="optionLabel">Property Nv 4</option>
+                <option disabled selected class="optionLabel">Properties Nv 4</option>
             </select>
 
             <div class="divPropertyButtons">
@@ -186,7 +189,7 @@
 
             <label for="propertyNv5" id="propertyLabel5">Properties Nv 5 :</label>
             <select name="propertyNv5" id="propertyNv5">
-                <option disabled selected class="optionLabel">Property Nv 5</option>
+                <option disabled selected class="optionLabel">Properties Nv 5</option>
             </select>
             <div class="divPropertyButtons">
                 <button id="buttonRemovePropertyNv5" hidden>
@@ -269,13 +272,14 @@
             <button id="copy" onclick="onCopy()">Copy text</button>
     </div>
     <script src="/public/scripts/main.js"></script>
-    <script src="/public/scripts/download.js"></script>
+    <script src="/public/scripts/downloadSchema.js"></script>
     <script src="/public/scripts/addObjInObj.js"></script>
     <script src="/public/scripts/events.js"></script>
     <script src="/public/scripts/properties.js"></script>
     <script src="/public/scripts/edit.js"></script>
     <script src="/public/scripts/popup.js"></script>
     <script src="/public/scripts/remove.js"></script>
+
 </body>
 
 </html>

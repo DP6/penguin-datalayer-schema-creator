@@ -37,17 +37,17 @@ const propertyType = document.querySelector('#newPropertyType');
 const propertyValidation = document.querySelector('#newPropertyValidation');
 const propertyRequired = document.querySelector('#newPropertyRequired');
 const propertyValue = document.querySelector('#newPropertyValue');
-const propertyNm = propertyList.children[propertyList.selectedIndex].value
+
 
 //edit property
 
 
 /* Obj button */
 
-const btnAddObject = document.querySelector('#buttonNv2')
-const btnAddObject2 = document.querySelector('#buttonNv3')
-const btnAddObject3 = document.querySelector('#buttonNv4')
-const btnAddObject4 = document.querySelector('#buttonNv5')
+const btnAddObjectNv2 = document.querySelector('#buttonNv2')
+const btnAddObjectNv3 = document.querySelector('#buttonNv3')
+const btnAddObjectNv4 = document.querySelector('#buttonNv4')
+const btnAddObjectNv5 = document.querySelector('#buttonNv5')
 
 //Add In Obj
 
@@ -124,3 +124,5 @@ const label2 = document.querySelector('#propertyLabel2')
 const label3 = document.querySelector('#propertyLabel3')
 const label4 = document.querySelector('#propertyLabel4')
 const label5 = document.querySelector('#propertyLabel5')
+
+const schemaName = document.querySelector('#schema_name')

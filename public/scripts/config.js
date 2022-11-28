@@ -1,31 +1,29 @@
-  btnAddConfig.onclick = function () {
-    let url = document.querySelector("#url").value;
-    let dataLayer = document.querySelector("#dataLayer").value;
-    let schema_name = document.querySelector("#schema_name").value;
+btnAddConfig.onclick = function (){
+  let url = document.querySelector("#url").value;
+  let dataLayer = document.querySelector("#dataLayer").value;
+  let schema_name = document.querySelector("#schema_name").value;
+  document.querySelector("#url").value = "";
+  document.querySelector("#dataLayer").value = "";
+  document.querySelector("#schema_name").value = "";
     
+  if (url === "" || dataLayer === "" || schema_name === "") {
+    alert("Please enter a valid Name");
+    return;
+  }
   
-    document.querySelector("#url").value = "";
-    document.querySelector("#dataLayer").value = "";
-    document.querySelector("#schema_name").value = "";
-    
-    if (url === "" || dataLayer === "" || schema_name === "") {
-      alert("Please enter a valid Name");
-      return;
-    }
+    validator = {
+       validator: [
+         {
+           url: url,
+           schema_name: [schema_name],
+           dataLayer: dataLayer,
+           browserClose: true,
+           time: 0
+         },
+       ]
+     };
   
-     validator = {
-        validator: [
-          {
-            url: url,
-            schema_name: [schema_name],
-            dataLayer: dataLayer,
-            browserClose: true,
-            time: 0
-          },
-        ]
-      };
-  
-    updateValidatorExample(JSON.stringify(validator, undefined, 2));
+   updateValidatorExample(JSON.stringify(validator, undefined, 2));
 
     
   };

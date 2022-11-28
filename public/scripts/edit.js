@@ -23,7 +23,7 @@ cancelEdit.onclick = function () {
 
 // Property edit
 btnAddPropertyPopup.onclick = function () {
-  let newProperty = {
+  let newProperty = { // pega o valor das propriedades
     name: document.querySelector("#propertyNamePopup").value,
     value: document.querySelector("#editPropertyValue").value,
     type: document.querySelector("#editPropertyType").value,
