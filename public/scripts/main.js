@@ -12,6 +12,7 @@ const btnAddProperty = document.querySelector('#buttonAddProperty');
 const btnRemoveProperty = document.querySelector('#buttonRemoveProperty');
 const btnEditProperty = document.querySelector('#buttonEditProperty');
 const propertyList = document.querySelector('#propertySelected');
+const search = document.querySelector('#search');
 
 const propertyName = document.querySelector('#newPropertyName');
 const propertyType = document.querySelector('#newPropertyType');
@@ -20,7 +21,7 @@ const propertyRequired = document.querySelector('#newPropertyRequired');
 const propertyValue = document.querySelector('#newPropertyValue');
 
 /* Filtro para trazer somente o elemento que está marcado */
-const propertyPlace = Array.from(document.querySelectorAll("#newPropertyPlace")).filter((item) => { return item.checked })[0];
+const propertyPlace = document.querySelectorAll("#newPropertyPlace")
 
 /* ****************** */
 

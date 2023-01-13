@@ -5,38 +5,41 @@ const removeEventInSchema = function (eventName, eventIndex) {
 };
 
 btnAddEvent.onclick = function () {
-    let eventName = document.querySelector('#eventName').value;
-    let newEvent = new Option(eventName, eventName);
+    if (propertyPlace[0].value === 'event' && propertyPlace[0].checked === true){
+        let eventName = document.querySelector('#eventName').value;
+        let newEvent = new Option(eventName, eventName);
 
-    document.querySelector('#eventName').value = '';
+        document.querySelector('#eventName').value = '';
 
-    if (eventName === '') {
-        alert('Please enter a valid Name');
-        return;
+        if (eventName === '') {
+            alert('Please enter a valid Name');
+            return;
+        }
+
+        let eventObjt = {
+            "type": "object",
+            "properties": {
+                "event": {
+                    "type": "string",
+                    "enum": [eventName]
+                }
+            },
+            "required": ["event"]
+        }
+        schema.array.items.push(eventObjt);
+        eventList.add(newEvent);
+
+        updateSchemaExample(JSON.stringify(schema, undefined, 2));
+
     }
-
-    let eventObjt = {
-        "type": "object",
-        "properties": {
-            "event": {
-                "type": "string",
-                "enum": [eventName]
-            }
-        },
-        "required": ["event"]
+    else{
+        alert("Selecione a opção desejada")
     }
-    schema.array.items.push(eventObjt);
-    eventList.add(newEvent);
-
-    updateSchemaExample(JSON.stringify(schema, undefined, 2));
-
 }
-
 eventList.addEventListener('change', () => {
     btnRemoveEvent.hidden = false;
     btnEditEvent.hidden = false;
     btnAddProperty.hidden = false;
-
     propertyName.disabled = false;
     propertyType.disabled = false;
     propertyRequired.disabled = false;

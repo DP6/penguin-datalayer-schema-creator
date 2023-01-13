@@ -1,0 +1,58 @@
+ [
+      {
+        "type": "object",
+        "properties": {
+          "event": {
+            "type": "string",
+            "enum": [
+              "luc"
+            ]
+          },
+          "opa": {
+            "type": "object",
+            "properties": {
+              "joao": {
+                "type": "object",
+                "properties": {
+                  "ovelha": {
+                    "type": "object",
+                    "properties": {},
+                    "required": []
+                  }
+                },
+                "required": [
+                  "ovelha"
+                ]
+              }
+            },
+            "required": [
+              "joao"
+            ]
+          }
+        },
+        "required": [
+          "event",
+          "opa"
+        ]
+      },
+      {
+        "type": "object",
+        "properties": {
+          "event": {
+            "type": "string",
+            "enum": [
+              "coisa"
+            ]
+          },
+          "correu": {
+            "type": "object",
+            "properties": {},
+            "required": []
+          }
+        },
+        "required": [
+          "event",
+          "correu"
+        ]
+      }
+    ]

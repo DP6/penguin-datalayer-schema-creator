@@ -25,7 +25,8 @@ btnAddProperty.onclick = function () {
 
     let eventIndex = eventList.selectedIndex - 1;
 
-    if (propertyPlace.value === 'event') {
+    if (propertyPlace[0].value === 'event' && 
+        propertyPlace[0].checked === true) {
         switch (propertyType.value) {
             case 'string':
 
@@ -90,10 +91,43 @@ btnAddProperty.onclick = function () {
                 break;
         }
     }
-    else {
-
+    else if(propertyPlace[1].value === 'property' && 
+            propertyPlace[1].checked === true){
+                
+        while(btnAddProperty.onclick){
+              let  caminho = schema.array.items[eventIndex]
+              function search(object,chave) {
+                for(let [prop,value] of Object.entries(object)){
+                  if(prop === 'properties'
+                     && typeof value === 'object'){
+                    if(Object.entries(value).length === 0){
+                      return value
+                    }
+                    else{
+                      for(let [key,val] of Object.entries(value)){
+                        if(key === chave){
+                           return search(val,chave)
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+              function addInProperty(){
+                search(caminho,propertyList.value)[propertyName.value] =
+                {
+                  type: "object",
+                  properties: {},
+                  required: []
+                }
+              return caminho
+            }
+            caminho = addInProperty()
+            console.log(caminho)
+            break
+        }
     }
-
+    
     if (propertyRequired.value === 'required') {
         schema.array.items[eventIndex].required.push(propertyName.value)
     }
@@ -135,3 +169,4 @@ btnRemoveProperty.onclick = function () {
 btnEditProperty.onclick = function () {
 
 }
+
