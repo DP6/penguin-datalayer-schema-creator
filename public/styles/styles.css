@@ -1,0 +1,26 @@
+.dp6-main {
+  -webkit-flex-shrink: 0;
+      -ms-flex-negative: 0;
+          flex-shrink: 0;
+}
+
+.dp6-container {
+  max-width: 1600px;
+  width: calc(100% - 16px);
+  margin: 0 auto;
+  justify-content: center;
+}
+
+.dp6-content {
+  border-radius: 2px;
+  padding: 24px;
+  margin-bottom: 12px;
+}
+
+.dp6-layout.is-small-screen .dp6-content {
+  padding: 40px 28px;
+}
+
+.dp6-content h3 {
+  margin-top: 12px;
+}
