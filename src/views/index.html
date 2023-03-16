@@ -11,11 +11,81 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400&display=swap" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
 </head>
 
 <body>
+    <div id="menu">
+        <ul>
+            <li><a href="index.html">Schema Creator</a></li>
+            <li><a href="config.html" target="_blank">Config Schema Creator</a></li>
+        </ul>
+    </div>
+    <div class="popup-wrapper">
+        <div class="popup">
+            <div class="popup-close">x</div>
+            <div class="popup-content">
+                <h2 class="h2-popup">Edit Event</h2>
+                <input type="text" id="eventNamePopup" placeholder="Event Name">
+                <button id="buttonAddEventPopup">
+                    Add
+                </button>
+                <button id="buttonCancelEventPopup">
+                    Cancel
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="popup-wrapperProperties">
+        <div class="popupProperties">
+            <div class="popup-closeProperties">x</div>
+            <div class="popup-contentProperties">
+                <h2 class="h2-popupProperties">Edit Property</h2>
+                <input type="text" Id="propertyNamePopup" placeholder="Property Name">
+                <br>
+                <select name="editPropertyType" id="editPropertyType" >
+                    <option class="optionLabelPopup">Property Type</option>
+                    <option value="string" class="optionsPopup"> String </option>
+                    <option value="number" class="optionsPopup"> Number </option>
+                    <option value="boolean" class="optionsPopup"> Boolean </option>
+                    <option value="object" class="optionsPopup"> Object </option>
+                    <option value="array" class="optionsPopup"> Array </option>
+                </select>
+                <br>
+                <select name="editPropertyValidation" id="editPropertyValidation" hidden>
+                    <option value="enum" class="optionsPopup"> Enum </option>
+                    <option value="pattern" class="optionsPopup"> Pattern </option>
+                </select>
+                <br>
+                <select name="editPropertyRequired" id="editPropertyRequired" >
+                    <option selected value="required" class="optionsPopup"> Required </option>
+                    <option value="nonRequired" class="optionsPopup"> Non-required </option>
+                </select>
+                <br>
+                <input type="text" id="editPropertyValue" placeholder="Property Value" hidden>
+                <br>
+                <button id="buttonAddPropertyPopup">
+                    Add
+                </button>
+                <button id="buttonAddPropertyNv2Popup">
+                    Add Nv2
+                </button>
+                <button id="buttonAddPropertyNv3Popup">
+                    Add Nv3
+                </button>
+                <button id="buttonAddPropertyNv4Popup">
+                    Add Nv4
+                </button>
+                <button id="buttonAddPropertyNv5Popup">
+                    Add Nv5
+                </button>
+                <button id="buttonCancelPropertyPopup">
+                    Cancel
+                </button>
+            </div>
+        </div>
+    </div>
 
     <div class="header">
         <div class="logoHeader">
@@ -27,8 +97,11 @@
     </div>
 
     <div class="container">
-
+        
         <div class="content">
+            <label for="schema_name"> Schema Name :</label>
+            <input type="text" id="schema_name" placeholder="Schema Name">
+            <br>
             <label for="eventName"> Event :</label>
             <input type="text" id="eventName" placeholder="Event Name">
 
@@ -38,6 +111,8 @@
                 </button>
             </div>
 
+            
+
             <br>
 
             <label for="eventSelected">Events Added :</label>
@@ -45,19 +120,92 @@
                 <option disabled selected class="optionLabel">Events</option>
             </select>
 
+            <div class="divEventsButtons">
+                <button id="buttonRemoveEvent" hidden>
+                    Remove
+                </button>
+                <button id="buttonEditEvent" hidden>
+                    Edit
+                </button>
+            </div>
+
             <br>
 
-            <label for="propertySelected"> Properties Added :</label>
+            <label for="propertySelected">Properties Added :</label>
             <select name="propertySelected" id="propertySelected">
                 <option disabled selected class="optionLabel">Properties</option>
             </select>
+
+            <div class="divPropertyButtons">
+                <button id="buttonRemoveProperty" hidden>
+                    Remove
+                </button>
+                <button id="buttonEditProperty" hidden>
+                    Edit
+                </button>
+            </div>
+
             <br>
 
-            <label for="newProperty"> New Property :</label>
-            <input type="text" id="newPropertyNamer" placeholder="Property Name">
+            <label for="propertyNv2" id="propertyLabel2">Properties Nv 2 :</label>
+            <select name="propertyNv2" id="propertyNv2">
+                <option disabled selected class="optionLabel">Properties Nv 2</option>
+            </select>
+
+            <div class="divPropertyButtons">
+                <button id="buttonRemovePropertyNv2" hidden>
+                    Remove
+                </button>
+            </div>
+
+
             <br>
 
-            <select name="newPropertyType" id="newPropertyType">
+            <label for="propertyNv3" id="propertyLabel3">Properties Nv 3 :</label>
+            <select name="propertyNv3" id="propertyNv3">
+                <option disabled selected class="optionLabel">Properties Nv 3</option>
+            </select>
+
+            <div class="divPropertyButtons">
+                <button id="buttonRemovePropertyNv3" hidden>
+                    Remove
+                </button>
+            </div>
+
+            <br>
+
+            <label for="propertyNv4" id="propertyLabel4">Properties Nv 4 :</label>
+            <select name="propertyNv4" id="propertyNv4">
+                <option disabled selected class="optionLabel">Properties Nv 4</option>
+            </select>
+
+            <div class="divPropertyButtons">
+                <button id="buttonRemovePropertyNv4" hidden>
+                    Remove
+                </button>
+            </div>
+
+            <br>
+
+            <label for="propertyNv5" id="propertyLabel5">Properties Nv 5 :</label>
+            <select name="propertyNv5" id="propertyNv5">
+                <option disabled selected class="optionLabel">Properties Nv 5</option>
+            </select>
+            <div class="divPropertyButtons">
+                <button id="buttonRemovePropertyNv5" hidden>
+                    Remove
+                </button>
+            </div>
+
+            <br>
+
+            <label for="newPropertyName"> New Property :</label>
+            <input type="text" id="newPropertyName" placeholder="Property Name" disabled>
+            <br>
+
+            
+
+            <select name="newPropertyType" id="newPropertyType" disabled>
                 <option disabled selected class="optionLabel">Property Type</option>
                 <option value="string" class="options"> String </option>
                 <option value="number" class="options"> Number </option>
@@ -67,42 +215,71 @@
             </select>
             <br>
 
-            <select name="newPropertyRequired" id="newPropertyRequired">
+            <select name="newPropertyValidation" id="newPropertyValidation" hidden>
+                <option value="enum" class="options"> Enum </option>
+                <option value="pattern" class="options"> Pattern </option>
+            </select>
+            <br>
+
+            <select name="newPropertyRequired" id="newPropertyRequired" disabled>
                 <option disabled selected class="optionLabel">Property Mode</option>
                 <option value="required" class="options"> Required </option>
                 <option value="nonRequired" class="options"> Non-required </option>
             </select>
             <br>
 
-            <input type="text" id="newPropertyValue" placeholder="Property Value">
+            <input type="text" id="newPropertyValue" placeholder="Property Value" hidden disabled>
+            <br>
 
             <div class="divAddButton">
-                <button id="buttonAddProperty">
+                <button id="buttonAddProperty" hidden>
                     Add
                 </button>
+                <button id="buttonNv2">
+                    Add Nv 2
+                </button>
+                <button id="buttonNv3">
+                    Add Nv 3
+                </button>
+                <button id="buttonNv4">
+                    Add Nv 4
+                </button>
+                <button id="buttonNv5">
+                    Add Nv 5
+                </button>
             </div>
-
         </div>
 
         <div class="schemaView">
-            <p>
-                {
-                "$schema": "",
-                "title": "The Root Schema",
-                "array": {
-                "$id": "#/propertys/schema",
-                "type": "array",
-                "items": [
-
-                ]
-                }
-                }
-            </p>
+            <pre id="schemaExample">
+{
+    "$schema": "",
+    "title": "The Root Schema",
+    "array": {
+        "$id": "#/propertys/schema",
+        "type": "array",
+        "items": []
+    }
+}
+            </pre>
         </div>
-
+        
     </div>
+    <div class="buttonDownload">
+        <button id="download" onclick="onDownload()">Download</button>
+        </div>
+        <div class="buttonCopy">
+            <button id="copy" onclick="onCopy()">Copy text</button>
+    </div>
+    <script src="/public/scripts/main.js"></script>
+    <script src="/public/scripts/downloadSchema.js"></script>
+    <script src="/public/scripts/addObjInObj.js"></script>
+    <script src="/public/scripts/events.js"></script>
+    <script src="/public/scripts/properties.js"></script>
+    <script src="/public/scripts/edit.js"></script>
+    <script src="/public/scripts/popup.js"></script>
+    <script src="/public/scripts/remove.js"></script>
 
-    <script src="/src/main.js"></script>
 </body>
 
 </html>

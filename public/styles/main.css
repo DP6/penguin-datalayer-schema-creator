@@ -27,7 +27,6 @@ button,
 textarea,
 select,
 label {
-    font-weight: 300;
     font-size: 1rem;
     font-family: 'Ubuntu', sans-serif;
     color: var(--color-text-base);
@@ -67,28 +66,103 @@ label {
     border-radius: 15px;
 }
 
-.divAddButton{
-    display: flex;
-    justify-content: start;
-
+.divAddButton, .divPropertyButtons, .divEventsButtons{
     padding-top: 5px;
 }
 
-#buttonAddProperty, #buttonAddEvent {
+button {
     font-family: 'Ubuntu', sans-serif;
-    font-weight: bold;
     color: var(--color-text-base);
     text-decoration: none;
-    
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-
-    transition: background 0.2s;
+    border-radius: 3px;
 }
 
 select {
     color: rgba(0, 0, 0, 0.50);
 }
+
+#buttonAddEvent, #buttonAddProperty, #buttonAddConfig, #buttonAddObj, #buttonAddEventPopup, #buttonNv2, #buttonNv3,#buttonNv4,#buttonNv5{
+    background: #7fd460;
+}
+#buttonAddObj, #buttonNv2, #buttonNv3,#buttonNv4,#buttonNv5{
+display:none
+}
+
+#buttonAddEvent:hover, #buttonAddProperty:hover, #buttonAddConfig:hover, #buttonAddObj:hover, #buttonAddEventPopup:hover,#buttonNv2:hover, #buttonNv3:hover,#buttonNv4:hover,#buttonNv5:hover {
+    background: #67cd42;
+}
+
+#buttonRemoveEvent, #buttonRemoveProperty, #buttonRemoveConfig,#buttonCancelEventPopup, #buttonRemovePropertyNv2, #buttonRemovePropertyNv3, #buttonRemovePropertyNv4, #buttonRemovePropertyNv5 {
+    background: #f97f6d;
+}
+
+#buttonRemoveEvent:hover, #buttonRemoveProperty:hover, #buttonRemoveConfig:hover, #buttonCancelEventPopup:hover, #buttonRemovePropertyNv2:hover, #buttonRemovePropertyNv3:hover, #buttonRemovePropertyNv4:hover, #buttonRemovePropertyNv5:hover {
+    background: #f05a43;
+}
+
+#buttonEditEvent, #buttonEditProperty, #buttonEditPropertyNv2, #buttonEditPropertyNv3, #buttonEditPropertyNv4, #buttonEditPropertyNv5 {
+    background: #edbb56;
+}
+
+#buttonEditEvent:hover, #buttonEditProperty:hover, #buttonEditPropertyNv2:hover, #buttonEditPropertyNv3:hover, #buttonEditPropertyNv4:hover, #buttonEditPropertyNv5:hover {
+    background: rgb(240, 167, 22);
+}
+
+.buttonDownload {
+    padding-top: 5px;
+
+}
+#download {
+    position: relative;
+    left: 1350px;
+    
+}
+
+
+#propertyNv2,#propertyLabel2, #propertyNv3, #propertyLabel3, #propertyNv4, #propertyLabel4, #propertyNv5, #propertyLabel5{
+    display: none;
+}
+
+.popup-wrapper, .popup-wrapperProperties{
+    display: none;
+    background: rgba(0,0,0, .5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    }
+    
+    .popup{
+        text-align: center;
+        width: 100%;
+        max-width: 400px;
+        height: 25%;
+        margin: 10% auto;
+        padding: 20px;
+        background: white;
+        position: relative;
+        border-radius: 15px;
+    }
+    
+    .popupProperties{
+        text-align: center;
+        width: 100%;
+        max-width: 400px;
+        height: 45%;
+        margin: 10% auto;
+        padding: 20px;
+        background: white;
+        position: relative;
+        border-radius: 15px;
+    }
+    
+    .h2-popup, .h2-popupProperties{
+        padding-bottom: 10px;
+    }
+    .popup-close, .popup-closeProperties{
+        position: absolute;
+        top: 5px;
+        right: 10px;
+        cursor: pointer;
+    }
