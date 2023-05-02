@@ -39,7 +39,11 @@ label {
 }
 
 .titleHeader {
-    padding-right: 550px;
+    padding-right: 800px;
+}
+
+.titleHeaderConfig{
+    padding-right: 800px;
 }
 
 #logo {
@@ -48,20 +52,23 @@ label {
 
 .container {
     display: flex;
-    justify-content: space-around;
+    justify-content:space-evenly;
+    flex-wrap: wrap;
+    
 }
 
 .content {
     display: flex;
     flex-direction: column;
+    flex-wrap: wrap;
     justify-content: start;
-
+    align-items: center;
     font-size: 14px;
 }
 
 .schemaView {
+    
     width: 450px;
-
     background: #D9D9D9;
     border-radius: 15px;
 }
@@ -109,14 +116,45 @@ display:none
 }
 
 .buttonDownload {
-    padding-top: 5px;
+    display:flex;
+    position: fixed;
+    flex-direction: column;
+    justify-content: space-evenly;
+    flex-direction: column;
+    margin-top: 540px;
+    margin-left: 230px;
+}
 
+.buttonCopy {
+    display:flex;
+    position: fixed;
+    flex-direction: column;
+    justify-content: space-evenly;
+    flex-direction: column;
+    margin-top: 570px;
+    margin-left: 230px;
 }
-#download {
-    position: relative;
-    left: 1350px;
-    
+
+.buttonConfigDownload{
+    display:flex;
+    position: fixed;
+    flex-direction: column;
+    justify-content: space-evenly;
+    flex-direction: column;
+    margin-top: 150px;
+    margin-left: 160px; 
 }
+
+.buttonConfigCopy{
+    display:flex;
+    position: fixed;
+    flex-direction: column;
+    justify-content: space-evenly;
+    flex-direction: column;
+    margin-top: 180px;
+    margin-left: 162px;  
+}
+
 
 
 #propertyNv2,#propertyLabel2, #propertyNv3, #propertyLabel3, #propertyNv4, #propertyLabel4, #propertyNv5, #propertyLabel5{
