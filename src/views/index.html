@@ -17,8 +17,8 @@
 <body>
     <div id="menu">
         <ul>
-            <li><a href="index.html">Schema Creator</a></li>
-            <li><a href="config.html" target="_blank">Config Schema Creator</a></li>
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="config.html">Config Schema Creator</a></li>
         </ul>
     </div>
     <div class="popup-wrapper">
@@ -262,21 +262,13 @@
     }
 }
             </pre>
-        
-    </div>
-
-    <div class="buttonDownload">
-        <button id="download" onclick="onDownload()">Download</button>
+            <button id="download" onclick="onDownload()">Download</button>   
+            <button id="copy" onclick="onCopy()">Copy text</button>
         </div>
-    <div class="buttonCopy">
-        <button id="copy" onclick="onCopy()">Copy text</button>
-    </div>
-    <div class="buttonCopy2">
-        <text id="copy" ></text>
-    </div>
+      
+</div>
 
-    </div>
-    
+  
     
     <script src="/public/scripts/main.js"></script>
     <script src="/public/scripts/downloadSchema.js"></script>

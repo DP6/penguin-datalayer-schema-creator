@@ -17,8 +17,8 @@
 <body>
     <div id="menu">
         <ul>
+            <li><a href="/index.html">Home</a></li>
             <li><a href="index.html">Schema Creator</a></li>
-            <li><a href="config.html">Config Schema Creator</a></li>
         </ul>
     </div>
     
@@ -59,17 +59,11 @@
             <pre id="schemaExample">
 
             </pre>
-                <div class="buttonConfigDownload">
-                    <button id="download" onclick="onDownload()">Download</button>
-                </div>
-                <div class="buttonConfigCopy">
-                    <button id="copy" onclick="onCopy()">Copy text</button>
-                </div>
-
+            <button id="downloadConfig" onclick="onDownload()">Download</button>
+            <button id="copyConfig" onclick="onCopy()">Copy text</button>
         </div>
             
-
-    </div>
+</div>
     
     <script src="/public/scripts/main.js"></script>
     <script src="/public/scripts/config.js"></script>
