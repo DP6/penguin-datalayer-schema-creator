@@ -39,7 +39,11 @@ label {
 }
 
 .titleHeader {
-    padding-right: 550px;
+    padding-right: 800px;
+}
+
+.titleHeaderConfig{
+    padding-right: 800px;
 }
 
 #logo {
@@ -48,22 +52,26 @@ label {
 
 .container {
     display: flex;
-    justify-content: space-around;
+    justify-content:space-evenly;
+    flex-wrap: wrap;
+      
 }
 
 .content {
     display: flex;
     flex-direction: column;
+    flex-wrap: wrap;
     justify-content: start;
-
+    align-items: center;
     font-size: 14px;
 }
 
 .schemaView {
+    height: 500px;
     width: 450px;
-
     background: #D9D9D9;
     border-radius: 15px;
+    
 }
 
 .divAddButton, .divPropertyButtons, .divEventsButtons{
@@ -108,15 +116,37 @@ display:none
     background: rgb(240, 167, 22);
 }
 
-.buttonDownload {
-    padding-top: 5px;
-
+#download{
+    display:flex;
+    flex-direction: column;
+    margin-top:310px;
+    margin-left: 170px;
 }
-#download {
-    position: relative;
-    left: 1350px;
+#copy{
+    display:flex;
+    flex-direction: column;
+    margin-top: 5px;
+    margin-left: 170px;
     
 }
+#downloadConfig{
+    display: flex;
+    flex-direction: column;
+    margin-top: 455px;
+    margin-left: 170px;
+}
+#copyConfig{
+    display: flex;
+    flex-direction: column;
+    margin-top: 5px;
+    margin-left: 172px;
+
+}
+
+
+
+
+
 
 
 #propertyNv2,#propertyLabel2, #propertyNv3, #propertyLabel3, #propertyNv4, #propertyLabel4, #propertyNv5, #propertyLabel5{
