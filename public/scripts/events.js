@@ -3,25 +3,25 @@ const removeEventInSchema = function (eventName, eventIndex) {
 };
 
 btnAddEvent.onclick = function () {
-  let eventName = document.querySelector("#eventName").value;
+  let eventName = document.querySelector('#eventName').value;
   let newEvent = new Option(eventName, eventName);
 
-  document.querySelector("#eventName").value = "";
+  document.querySelector('#eventName').value = '';
 
-  if (eventName === "") {
-    alert("Please enter a valid Name");
+  if (eventName === '') {
+    alert('Please enter a valid Name');
     return;
   }
 
   let eventObjt = {
-    type: "object",
+    type: 'object',
     properties: {
       event: {
-        type: "string",
+        type: 'string',
         enum: [eventName],
       },
     },
-    required: ["event"],
+    required: ['event'],
   };
   schema.array.items.push(eventObjt);
   eventList.add(newEvent);
@@ -29,7 +29,7 @@ btnAddEvent.onclick = function () {
   updateSchemaExample(JSON.stringify(schema, undefined, 2));
 };
 
-eventList.addEventListener("change", () => {
+eventList.addEventListener('change', () => {
   btnRemoveEvent.hidden = false;
   btnEditEvent.hidden = false;
   btnAddProperty.hidden = false;
@@ -58,8 +58,8 @@ btnRemoveEvent.onclick = function () {
     propertyRequired.disabled = true;
     propertyValue.disabled = true;
 
-    propertyName.value = "";
-    propertyValue.value = "";
+    propertyName.value = '';
+    propertyValue.value = '';
   }
 
   updateSchemaExample(JSON.stringify(schema, undefined, 2));

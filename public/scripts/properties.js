@@ -3,78 +3,78 @@ const removePropertyInSchema = function (propertyName, propertyIndex) {
 };
 
 const resetPropertyValues = function () {
-  propertyName.value = "";
-  propertyValue.value = "";
+  propertyName.value = '';
+  propertyValue.value = '';
   propertyType[0].selected = true;
   propertyRequired[0].selected = true;
   propertyValidation.hidden = true;
 };
 
 btnAddProperty.onclick = function () {
-  btnAddObjectNv2.style.display = "block";
+  btnAddObjectNv2.style.display = 'block';
   let newProperty = new Option(propertyName.value, propertyName.value);
 
   if (
-    propertyName.value === "" ||
-    (propertyValue.value === "" && propertyType.value === "string") ||
-    propertyType.value === "Property Type" ||
-    propertyRequired.value === "Property Mode"
+    propertyName.value === '' ||
+    (propertyValue.value === '' && propertyType.value === 'string') ||
+    propertyType.value === 'Property Type' ||
+    propertyRequired.value === 'Property Mode'
   ) {
-    alert("Please enter all values !");
+    alert('Please enter all values !');
     return;
   }
 
   let eventIndex = eventList.selectedIndex - 1;
 
-    switch (propertyType.value) {
-      case "string":
-        if (propertyValidation.value === "enum") {
-          schema.array.items[eventIndex].properties[propertyName.value] = {
-            type: "string",
-            enum: propertyValue.value.split(","),
-          };
-        } else {
-          schema.array.items[eventIndex].properties[propertyName.value] = {
-            type: "string",
-            pattern: propertyValue.value,
-          };
-        }
-        break;
-
-      case "number":
+  switch (propertyType.value) {
+    case 'string':
+      if (propertyValidation.value === 'enum') {
         schema.array.items[eventIndex].properties[propertyName.value] = {
-          type: "number",
+          type: 'string',
+          enum: propertyValue.value.split(','),
         };
-        break;
-
-      case "boolean":
+      } else {
         schema.array.items[eventIndex].properties[propertyName.value] = {
-          type: "boolean",
+          type: 'string',
+          pattern: propertyValue.value,
         };
-        break;
+      }
+      break;
 
-      case "object":
-        schema.array.items[eventIndex].properties[propertyName.value] = {
-          type: "object",
-          properties: {},
-          required: [],
-        };
+    case 'number':
+      schema.array.items[eventIndex].properties[propertyName.value] = {
+        type: 'number',
+      };
+      break;
 
-        break;
+    case 'boolean':
+      schema.array.items[eventIndex].properties[propertyName.value] = {
+        type: 'boolean',
+      };
+      break;
 
-      case "array":
-        schema.array.items[eventIndex].properties[propertyName.value] = {
-          type: "array",
-          contains: {},
-        };
+    case 'object':
+      schema.array.items[eventIndex].properties[propertyName.value] = {
+        type: 'object',
+        properties: {},
+        required: [],
+      };
 
-        break;
+      break;
 
-      default:
-        break;
-    }
+    case 'array':
+      schema.array.items[eventIndex].properties[propertyName.value] = {
+        type: 'array',
+        contains: {},
+      };
 
-  if (propertyRequired.value === "required") {
+      break;
+
+    default:
+      break;
+  }
+
+  if (propertyRequired.value === 'required') {
     schema.array.items[eventIndex].required.push(propertyName.value);
   }
 
@@ -83,8 +83,8 @@ btnAddProperty.onclick = function () {
   resetPropertyValues();
 };
 
-propertyType.addEventListener("change", () => {
-  if (propertyType.value === "string") {
+propertyType.addEventListener('change', () => {
+  if (propertyType.value === 'string') {
     propertyValidation.hidden = false;
     propertyValue.hidden = false;
   } else {
@@ -93,18 +93,18 @@ propertyType.addEventListener("change", () => {
   }
 });
 
-propertyList.addEventListener("change", () => {
+propertyList.addEventListener('change', () => {
   btnRemoveProperty.hidden = false;
   btnEditProperty.hidden = false;
 });
 
 btnRemoveProperty.onclick = function () {
-  let selectProps = document.querySelectorAll("#propertySelected")[0];
-  let selectEvents = document.querySelectorAll("#eventSelected")[0];
-  let selectedProperty = selectProps.children[selectProps.selectedIndex].value
-  delete schema.array.items[selectEvents.selectedIndex - 1].properties[selectedProperty]
+  let selectProps = document.querySelectorAll('#propertySelected')[0];
+  let selectEvents = document.querySelectorAll('#eventSelected')[0];
+  let selectedProperty = selectProps.children[selectProps.selectedIndex].value;
+  delete schema.array.items[selectEvents.selectedIndex - 1].properties[selectedProperty];
   propertyList.remove(propertyList.selectedIndex);
-  schema.array.items[selectEvents.selectedIndex - 1].required.splice(selectProps.selectedIndex,1)
+  schema.array.items[selectEvents.selectedIndex - 1].required.splice(selectProps.selectedIndex, 1);
 
   if (propertyList.length === 1) {
     propertyList[0].selected = true;
