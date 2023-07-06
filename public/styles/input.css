@@ -1,0 +1,89 @@
+/* Estrutura */
+.input-container {
+  position: relative;
+  flex: 1;
+  margin: 10px 5px;
+}
+
+input, select{
+  background-color: unset;
+}
+
+.input-container input,
+.input-container textarea {
+  border: 0;
+  border-bottom: 2px solid var(--text-on-color);
+  outline: none;
+  transition: 0.2s ease-in-out;
+  box-sizing: border-box;
+}
+
+.label {
+  color: #fff;
+}
+
+.input-container label {
+  top: 0;
+  left: 10px;
+  right: 0;
+  color: var(--text-on-color);
+  display: flex;
+  align-items: center;
+  position: absolute;
+  font-size: 1rem;
+  cursor: text;
+  transition: 0.2s ease-in-out;
+  box-sizing: border-box;
+
+  pointer-events: none;
+}
+
+.input-container input,
+.input-container label, .input-container select {
+  width: 100%;
+  height: 3rem;
+  font-size: 1rem;
+  color: #fff;
+}
+.input-container textarea {
+  width: 100%;
+  font-size: 1rem;
+  color: var(--text-on-color);
+}
+
+/* Interation */
+.input-container input:valid,
+.input-container input:focus,
+.input-container textarea:focus {
+  border-bottom: 2px solid var(--primary);
+}
+
+
+
+.input-container input:valid + label,
+.input-container input:focus + label,
+.input-container textarea:focus + label,
+.input-container textarea:valid + label {
+  color: var(--primary);
+  font-size: 0.8rem;
+  top: -30px;
+  pointer-events: none;
+}
+
+.dark-mode .input-container input,
+.dark-mode .input-container textarea {
+  background-color: var(--card);
+}
+
+form .column{
+  align-items: start;
+}
+
+
+select:focus, select:active {
+  background-color: var(--card);
+}
+
+.input-container input:invalid {
+  border-bottom: 2px solid red;
+}

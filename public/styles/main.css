@@ -7,6 +7,10 @@ body {
     background: rgba(0, 0, 0, 0.31);
 }
 
+h1 {
+    text-align: center;
+}
+
 input,
 select {
     height: 20px;
@@ -115,6 +119,7 @@ display:none
 #buttonEditEvent:hover, #buttonEditProperty:hover, #buttonEditPropertyNv2:hover, #buttonEditPropertyNv3:hover, #buttonEditPropertyNv4:hover, #buttonEditPropertyNv5:hover {
     background: rgb(240, 167, 22);
 }
+<<<<<<< HEAD
 
 #download{
     display:flex;
@@ -196,3 +201,5 @@ display:none
         right: 10px;
         cursor: pointer;
     }
+=======
+>>>>>>> github-pages-config
